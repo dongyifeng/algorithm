@@ -1,13 +1,10 @@
 # coding:UTF-8
-# 插入排序
+# 冒泡排序
 def sort(data):
-	for i in range(1,len(data)):
-		k=i
-		current=data[i]
-		while k>0 and current<data[k-1]:
-			data[k]=data[k-1]
-			k-=1
-		data[k]=current
+	for i in range(len(data)):
+		for j in range(i+1,len(data)):
+			if data[i]>data[j]:
+				exchange(data,j,i)
 
 def exchange(data,i,j):
 	tmp=data[i]
