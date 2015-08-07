@@ -9,11 +9,6 @@ def sort(data):
 			k-=1
 		data[k]=current
 
-def exchange(data,i,j):
-	tmp=data[i]
-	data[i]=data[j]
-	data[j]=tmp
-
 data=[1,7,3,6,4,5]
 print data
 sort(data)
