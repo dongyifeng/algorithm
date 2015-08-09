@@ -3,6 +3,7 @@
 import sys
 def sort(data):
 	bucket=[[]for i in range(10)]
+	# 将数据放入桶中
 	for i in range(len(data)):
 		index=data[i]%10
 		bucket[index].append(data[i])
@@ -11,27 +12,17 @@ def sort(data):
 			bucket[index][j]=bucket[index][j-1]
 			j-=1
 		bucket[index][j]=data[i]
+	# 将桶中数据放回数组
 	k=0
-	data=[0 for i in range(len(data))]
-	data[0]=-sys.maxsize
 	for i in range(10):
 		if len(bucket[i])==0:continue
-		print 'bucket:',bucket[i]
 		for j in range(len(bucket[i])):
-			#if bucket[i][j]>=data[k]:
-			#	data[k]=bucket[i][j]
-			#	k+=1
-			#	continue
-			h=k
-			current=bucket[i][j]
-			while h>0 and data[h]>current:
-				data[h+1]=data[h]
-				if h>0:h-=1
-			print 'h',h
-			data[h]=current
+			data[k]=bucket[i][j]
+			h=k-1
+			while h>=0 and bucket[i][j]<data[h]:
+				exchange(data,h,h+1)
+				h-=1
 			k+=1
-			print data
-				
 
 def exchange(data,i,j):
 	tmp=data[i]
