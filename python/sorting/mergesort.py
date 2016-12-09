@@ -24,11 +24,6 @@ def merge(data,start,middle,end):
 			data[i]=after[ai]
 			ai+=1
 
-def exchange(data,i,j):
-	tmp=data[i]
-	data[i]=data[j]
-	data[j]=tmp
-
 data=[2,8,7,1,3,5,6,4]
 print data
 sort(data,0,len(data)-1)

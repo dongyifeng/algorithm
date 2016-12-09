@@ -5,7 +5,7 @@ def sort(data,start,end):
 	i=start
 	last=data[end]
 	for k in range(start,end):
-		if data[k]<last:
+		if data[k]<=last:
 			exchange(data,i,k)
 			i+=1
 	print data,start,end,i
@@ -19,7 +19,7 @@ def exchange(data,i,j):
 	data[i]=data[j]
 	data[j]=tmp
 
-data=[6,5,7]
+data=[4, 2, 1, 3, 1]
 print data
 sort(data,0,len(data)-1)
 print data
